@@ -22,6 +22,11 @@ public class ProdutoContol {
         pRepo.save(p);
     }
 
+    @GetMapping("/buscarTodos")
+    public List<Produto> buscarTodos(){
+        return pRepo.findAll();
+    }
+
     @GetMapping("/produto/{id}")
     public Optional<Produto> buscarProdutoPorId(@PathVariable(value= "id") int id)
     {

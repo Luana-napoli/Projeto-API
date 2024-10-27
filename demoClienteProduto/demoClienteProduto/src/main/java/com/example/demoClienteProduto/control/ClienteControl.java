@@ -21,6 +21,11 @@ public class ClienteControl {
         cRepo.save(c);
     }
 
+    @GetMapping("/buscarTodos")
+    public List<Cliente> buscarTodos(){
+        return cRepo.findAll();
+    }
+
     @GetMapping("/cliente/{id}")
     public Optional<Cliente> buscarClientePorId(@PathVariable(value= "id") int id)
     {
