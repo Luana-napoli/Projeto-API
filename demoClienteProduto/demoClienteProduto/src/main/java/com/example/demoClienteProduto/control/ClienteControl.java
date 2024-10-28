@@ -48,6 +48,18 @@ public class ClienteControl {
         cRepo.deleteById(id);
     }
 
+    @GetMapping("/buscar/email/{email}")
+    public Optional<Cliente> buscarClientePorEmail(@PathVariable(value= "email") String email)
+    {
+        return cRepo.findByEmail(email);
+    }
+
+    @GetMapping("/buscar/parteNomeEParteEmail/{parteNome}/{parteEmail}")
+    public List<Cliente> findByParteNome(@PathVariable String parteNome,
+                                         @PathVariable String parteEmail){
+        return cRepo.findByParteNomeEEmail(parteNome, parteEmail);
+    }
+
 
 
 }
