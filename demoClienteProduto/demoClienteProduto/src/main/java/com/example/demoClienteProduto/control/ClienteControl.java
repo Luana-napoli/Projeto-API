@@ -60,6 +60,10 @@ public class ClienteControl {
         return cRepo.findByParteNomeEEmail(parteNome, parteEmail);
     }
 
-
+    @DeleteMapping("/removerPorRegistroTodo")
+    public void removerPorId(@RequestBody Cliente cliente)
+    {
+        cRepo.delete(cliente);
+    }
 
 }
