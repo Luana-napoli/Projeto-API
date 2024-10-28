@@ -59,4 +59,15 @@ public class ProdutoContol {
         return pRepo.findByMarca(marca);
     }
 
+    @DeleteMapping("/removerPorRegistro")
+    public void removerPorRegistro(@RequestBody Produto p)
+    {
+        pRepo.delete(p);
+    }
+
+    @GetMapping("buscar/buscaParteMarcaPrecoMenor/{parte}/{preco}")
+    public List<Produto> findParteMarcaPrecoMenor(@PathVariable String parte, @PathVariable double preco){
+        return pRepo.findParteMarcaPrecoMenor(parte, preco);
+    }
+
 }
